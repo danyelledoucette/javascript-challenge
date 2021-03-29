@@ -27,18 +27,32 @@ button.on("click", function() {
     var input = date.property("value");
 
     console.log(input)
-    var filteredData = tableData.filter(sighting => sighting.datetime === input);
-    var filteredData = tableData.filter(sighting => sighting.city === input);
-    var filteredData = tableData.filter(sighting => sighting.state === input);
-    var filteredData = tableData.filter(sighting => sighting.country === input);
-    var filteredData = tableData.filter(sighting => sighting.shape === input);
+    var filteredDate = tableData.filter(sighting => sighting.datetime === input);
+    var filteredCity = tableData.filter(sighting => sighting.city === input);
+    var filteredState = tableData.filter(sighting => sighting.state === input);
+    var filteredCountry = tableData.filter(sighting => sighting.country === input);
+    var filteredShape = tableData.filter(sighting => sighting.shape === input);
 
-                                                    // sighting.city === input ||
-                                                    // sighting.state === input ||
-                                                    // sighting.country === input ||
-                                                    // sighting.shape === input);
+    filteredData = tableData;
     console.log(filteredData);
 
+    filteredData = tableData;
+
+    if (filteredDate) {
+        filteredData = filteredData.filter(record => record.datetime === filteredDate);
+    }
+    if (filteredCity) {
+      filteredData = filteredData.filter(record => record.city === filteredCity);
+    }
+    if (filteredState) {
+        filteredData = filteredData.filter(record => record.state === filteredState);
+    }
+    if (filteredCountry) {
+      filteredData = filteredData.filter(record => record.country === filteredCountry);
+    }
+    if (filteredShape) {
+        filteredData = filteredData.filter(record => record.shape === filteredShape);
+    }
 
     filteredData.forEach(function(selections) {
       console.log(selections);
